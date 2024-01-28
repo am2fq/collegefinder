@@ -109,11 +109,30 @@
             border-color: #2980b9;
             box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
         }
+
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #34495e;
+            background-color: #ecf0f1;
+            color: #34495e;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: #2980b9;
+            box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+        }
     </style>
 </head>
 <body>
     <div id="controls">
         <button id="toggleButton">Toggle Sidebar</button>
+        <input type="text" id="searchInput" placeholder="Search for schools" oninput="searchSchools()">
         <select id="stateSelect" onchange="onStateChange()">
             <option value="">Select State</option>
         </select>
@@ -179,18 +198,20 @@ function updateSATScoreDisplay(value) {
                         });
                     }
 
-                    const marker = new google.maps.Marker({
-                        position: latLng,
-                        map: map,
-                        title: `${feature.properties.NAME}, ${city}, ${state}`,
-                        state: state,
-                        city: city,
-                        programs: feature.properties.programs ? feature.properties.programs.map(program => program.title) : [],
-                        actScores: feature.properties.act_scores,
-                      //  satScores: feature.properties.sat_scores,
-                        icon:'/data/photo.png'
-                    });
-                    markers.push(marker);
+                    const schoolName = feature.properties.NAME; // Extract school name
+const marker = new google.maps.Marker({
+    position: latLng,
+    map: map,
+    title: `${schoolName}, ${city}, ${state}`,
+    state: state,
+    city: city,
+    programs: feature.properties.programs ? feature.properties.programs.map(program => program.title) : [],
+    actScores: feature.properties.act_scores,
+    // satScores: feature.properties.sat_scores,
+    icon: '/data/photo.png',
+    schoolName: schoolName, // Set schoolName property
+});
+markers.push(marker);
 
                     const infoWindow = new google.maps.InfoWindow({
                         content: feature.properties.NAME
@@ -305,6 +326,17 @@ function filterMarkers() {
     });
 }
 
+function searchSchools() {
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput.value.toLowerCase();
+
+            markers.forEach(marker => {
+                const schoolName = marker.schoolName.toLowerCase();
+                const matchSearchTerm = schoolName.includes(searchTerm);
+
+                marker.setVisible(matchSearchTerm);
+            });
+        }
 
 
     document.getElementById('toggleButton').addEventListener('click', function() {
