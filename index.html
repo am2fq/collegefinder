@@ -77,6 +77,9 @@
         }
 
         #toggleButton {
+            position: absolute;
+            top: 0;
+            right: 0;
             padding: 10px 15px;
     background-color: #2980b9; /* A shade of blue */
     color: white;
@@ -91,6 +94,48 @@
     position: relative;
     display: inline-block; /* Or 'block', depending on your layout */
 }
+
+#popup-window {
+            position: fixed;
+            width: 15%;
+            height: 50%;
+            background: white;
+            border: 1px solid black;
+            padding: 10px;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+            display: none;
+        }
+
+    #star-rating {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.star {
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+    .star:hover,
+    .star.active {
+        color: gold;
+    }
+
+.boxed-header {
+    border: 2px solid #08233e;  /* Border style, change the color and width as needed */
+    padding: 10px;  /* Padding inside the box */
+    display: inline-block;  /* Ensure the box only takes the necessary width */
+    background-color: #34495e;  /* Background color of the box, change as needed */
+    border-radius: 5px;  /* Optional: Add rounded corners */
+    }
+
+
+
 
 .searchInput{
     box-shadow: 0 0 8px rgba(245,245,245,0.984);
@@ -246,6 +291,8 @@
         <img src="Map_My_Degree_Words.png" alt="App Name" class="app-name-image">
     </div>
     <div id="controls">
+        <button id="toggleButton">&#9776; <!--Toggle Sidebar--> </button><br><br>
+
         <input type="text" id="searchInput" placeholder="Search for schools" class="searchInput" oninput="searchSchools()">
         <select id="stateSelect" class="stateSelect" onchange="onStateChange()">
         <!--<input type="text" id="searchInput" placeholder="Search for schools" oninput="searchSchools()">
@@ -277,12 +324,67 @@
             <form><button type="submit" formaction="info.html">
             <img src="infologo.png" alt="buttonpng" border="0" />
         </button></form>
-        <button id="toggleButton">Toggle Sidebar</button>
-        </div>
+        
+        <button href="#" id="popup-link">Give us feedback!</button>
+        <div id="popup-window">
+            <h1>Feedback Form</h1>
+            <form id="surveyForm">
+                <div id="star-rating">
+                    <span class="star" data-rating="1">★</span>
+                    <span class="star" data-rating="2">★</span>
+                    <span class="star" data-rating="3">★</span>
+                    <span class="star" data-rating="4">★</span>
+                    <span class="star" data-rating="5">★</span>
+                </div>
+                <input type="hidden" id="rating" name="rating" value="0">
+                <label for="fullName">Full Name:</label><br>
+                <input type="text" id="fullName" name="fullName" required><br>
+                <label for="contactInfo">Contact Information:</label><br>
+                <input type="text" id="contactInfo" name="contactInfo" required><br>
+                <label for="feedback">Feedback:</label><br>
+                <textarea id="feedback" name="feedback" rows="4" required></textarea><br>
+                <button type="button" onclick="submitSurvey()">Submit Survey</button>
+                <button id="close-button" onclick="this.form.reset();">Close</button>
+            </form>
+        </div>  
+    </div>
     </div>
     <div id="map"></div>
 
     <script>
+
+        var popupLink = document.getElementById("popup-link");
+                var popupWindow = document.getElementById("popup-window");
+                var closeButton = document.getElementById("close-button");
+                popupLink.addEventListener("click", function(event) {
+                event.preventDefault();
+                popupWindow.style.display = "block";
+            });
+                closeButton.addEventListener("click", function() {
+                popupWindow.style.display = "none";
+            });
+
+
+            
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('rating');
+
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                const rating = parseInt(star.getAttribute('data-rating'));
+                ratingInput.value = rating;
+
+                // Remove 'active' class from all stars
+                stars.forEach(s => s.classList.remove('active'));
+
+                // Add 'active' class to selected stars
+                for (let i = 0; i < rating; i++) {
+                    stars[i].classList.add('active');
+                }
+                });
+            });
+
+
                 function calculateDistance(userPosition, markerPosition) {
             const R = 3958.8; // Radius of the Earth in miles
             const lat1 = userPosition.lat();
@@ -474,6 +576,54 @@ function filterMarkers() {
     });
 }
 */
+
+
+function submitSurvey() {
+            var fullName = document.getElementById('fullName').value;
+            var contactInfo = document.getElementById('contactInfo').value;
+            var feedback = document.getElementById('feedback').value;
+            var rating = document.getElementById('rating').value;
+
+            var data = {
+                fullName: fullName,
+                contactInfo: contactInfo,
+                feedback: feedback,
+                rating: rating
+            };
+        
+            sendSurveyData(data);
+
+            document.getElementById('fullName').value = '';
+            document.getElementById('contactInfo').value = '';
+            document.getElementById('feedback').value = '';
+            document.getElementById('rating').value = '0';
+
+            // Remove 'active' class from all stars
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(s => s.classList.remove('active'));
+}
+
+function sendSurveyData(data) {
+    fetch('/submit-survey', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.text()) 
+    .then(data => {
+        console.log('Response from backend:', data);
+        alert('Survey submitted successfully!');
+    })
+    .catch(error => {
+        console.error('Error submitting survey:', error);
+        alert('Error submitting survey. Please try again.');
+    });
+}
+
+
 
 
 function filterMarkers() {
