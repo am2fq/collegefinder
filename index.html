@@ -34,6 +34,11 @@
             transition: width 0.5s;
         }
 
+        .gm-style-mtc {
+        top: 12px; /* Adjust the top position */
+        right: -50px; /* Adjust the right position */
+}
+
         body {
             margin: 0px;
             padding: 0px;
@@ -236,8 +241,8 @@
     <div id="controls">
         <input type="text" id="searchInput" placeholder="Search for schools" class="searchInput" oninput="searchSchools()">
         <select id="stateSelect" class="stateSelect" onchange="onStateChange()">
-        <input type="text" id="searchInput" placeholder="Search for schools" oninput="searchSchools()">
-        <select id="stateSelect" onchange="onStateChange()">
+        <!--<input type="text" id="searchInput" placeholder="Search for schools" oninput="searchSchools()">
+        <select id="stateSelect" onchange="onStateChange()">-->
             <option value="">Select State</option>
         </select>
         <select id="citySelect" class="citySelect" onchange="filterMarkers()">
@@ -336,8 +341,8 @@ markers.push(marker);
                         content: '<h3 id="popupTitle">'+feature.properties.NAME+'</h3>'
                         +'<p id="popup">'+feature.properties.address+'</p>'
                         +'<p id="popup">'+feature.properties.city+', '+feature.properties.state+' '+feature.properties.zip_code+'</p>'+'<br />'
-                        +'<p id="popup">'+"In State Tuition: "+feature.properties.in_state_tuition+'</p>'
-                        +'<p id="popup">'+"Out of State Tuition: "+feature.properties.out_of_state_tuition+'</p>'+'<br />'
+                        +'<p id="popup">'+"In State Tuition: $"+feature.properties.in_state_tuition+'</p>'
+                        +'<p id="popup">'+"Out of State Tuition: $"+feature.properties.out_of_state_tuition+'</p>'+'<br />'
                         +'<a id="page-link" href=http://'+url_extracted+' target="_blank">'+"View University Page"+'</a>'
                         +'<p id="popup">'+"URL: "+feature.properties.school_url+'</p>'
                     });
