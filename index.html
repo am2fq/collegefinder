@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Map with Filters</title>
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap");
         .info-window {
             font-family: 'Arial', sans-serif;
             color: #333;
@@ -84,6 +85,37 @@
     position: relative;
     display: inline-block; /* Or 'block', depending on your layout */
 }
+
+.searchInput{
+    box-shadow: 0 0 8px rgba(245,245,245,0.984);
+    font-family: "Inclusive Sans", sans-serif;
+    font-style: italic;
+}
+
+.stateSelect{
+    box-shadow: 0 0 8px rgba(245,245,245,0.984);
+    position: relative;
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 570;
+    font-style: italic;
+}
+
+.citySelect{
+    box-shadow: 0 0 8px rgba(245,245,245,0.984);
+    position: relative;
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 570;
+    font-style: italic;
+}
+
+.majorSelect{
+    box-shadow: 0 0 8px rgba(245,245,245,0.984);
+    position: relative;
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 570;
+    font-style: italic;
+}
+
 
 .logo {
     width: 200px; /* Adjust as per your logo's size */
@@ -175,14 +207,14 @@
 <body>
     <div id="controls">
         <button id="toggleButton">Toggle Sidebar</button>
-        <input type="text" id="searchInput" placeholder="Search for schools" oninput="searchSchools()">
-        <select id="stateSelect" onchange="onStateChange()">
+        <input type="text" id="searchInput" placeholder="Search for schools" class="searchInput" oninput="searchSchools()">
+        <select id="stateSelect" class="stateSelect" onchange="onStateChange()">
             <option value="">Select State</option>
         </select>
-        <select id="citySelect" onchange="filterMarkers()">
+        <select id="citySelect" class="citySelect" onchange="filterMarkers()">
             <option value="">Select City</option>
         </select>
-        <select id="majorSelect" onchange="filterMarkers()">
+        <select id="majorSelect" class="majorSelect" onchange="filterMarkers()">
             <option value="">Select Major</option>
         </select>
         <!---
