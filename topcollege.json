@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Princeton University",
+    "ranking": 1
+  },
+  {
+    "id": 2,
+    "name": "Massachusetts Institute of Technology",
+    "ranking": 2
+  },
+  {
+    "id": 3,
+    "name": "Harvard University",
+    "ranking": 3
+  },
+  {
+    "id": 4,
+    "name": "Stanford University",
+    "ranking": 4
+  },
+  {
+    "id": 5,
+    "name": "Yale University",
+    "ranking": 5
+  },
+  {
+    "id": 6,
+    "name": "University of Pennsylvania",
+    "ranking": 6
+  },
+  {
+    "id": 7,
+    "name": "California Institute of Technology",
+    "ranking": 7
+  },
+  {
+    "id": 8,
+    "name": "Duke University",
+    "ranking": 8
+  },
+  {
+    "id": 9,
+    "name": "Brown University",
+    "ranking": 9
+  },
+  {
+    "id": 10,
+    "name": "Johns Hopkins University",
+    "ranking": 10
+  }
+]
