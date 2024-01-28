@@ -46,6 +46,7 @@
         }
 
         #resetButton {
+        border-radius: 15px;
         position: relative;
         top: 20px;
         left: 75px;
@@ -100,10 +101,11 @@
             bottom: 0px;   
             left: 105px;
             
+            border-radius: 15px;
             background-color: #2980b9; /* A shade of blue */
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 15px;
             font-size: 16px;
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -119,6 +121,7 @@
         width: 15%;
         height: 50%;
         background: #3498db;
+        border-radius: 15px;
         border: 1px solid black;
         padding: 10px;
         margin: auto;
@@ -194,10 +197,11 @@
     color: white;
     border: none;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 15px; /* Adjust the radius as needed */
     cursor: pointer;
     z-index: 100; /* Ensure it's above other elements */
 }
+
 
 .feedback-button:hover {
     background-color: #2980b9;
@@ -368,7 +372,7 @@
         <!---
         <input type="number" id="actScore" placeholder="ACT Score" onchange="filterMarkers()">
         -->
-        <label for="actScore" style="color:white">ACT Score:</label>
+        <label for="actScore" style="color:rgb(15, 226, 209)">ACT Score:</label>
         
 <input type="range" id="actScore" min="1" max="36" value="36" oninput="updateACTScoreDisplay(this.value); filterMarkers();" />
 <span id="actScoreDisplay" style="color:white">36</span>
@@ -541,7 +545,8 @@ function updateOUTStateDisplay(value) {
         function initMap() {
             map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 4,
-                center: { lat: 33.5, lng: -86.8 }
+                center: { lat: 33.5, lng: -86.8 },
+                mapTypeId: google.maps.MapTypeId.SATELLITE
             });
 
             
@@ -821,6 +826,7 @@ const script = document.createElement("script");
 script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyD1e_KlIlKeCykamE8IhKtJdSGpS3ZsNXA&callback=initMap`;
 script.async = true;
 document.body.appendChild(script);
+
 }
 
 
