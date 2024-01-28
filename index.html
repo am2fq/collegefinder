@@ -221,12 +221,14 @@
         <input type="number" id="actScore" placeholder="ACT Score" onchange="filterMarkers()">
         -->
         <label for="actScore" style="color:white">ACT Score:</label>
-<input type="range" id="actScore" min="1" max="36" value="1" oninput="updateACTScoreDisplay(this.value); filterMarkers();" />
-<span id="actScoreDisplay" style="color:white">1</span>
+<input type="range" id="actScore" min="1" max="36" value="36" oninput="updateACTScoreDisplay(this.value); filterMarkers();" />
+<span id="actScoreDisplay" style="color:white">36</span>
 
-<label for="satScore" style="color:white">SAT Score:</label>
-<input type="range" id="satScore" min="1" max="1600" value="1" oninput="updateSATScoreDisplay(this.value); filterMarkers();" />
-<span id="satScoreDisplay" style="color:white">1</span>
+<label for="instate" style="color:white">Instate:</label>
+<input type="range" id="instate" min="1" max="50000" value="50000" oninput="updateINStateDisplay(this.value); filterMarkers();" />
+<span id="INStateDisplay" style="color:white">50000</span>
+
+
 
         <div class="button-container">
             <form><button type="submit" formaction="info.html">
@@ -240,8 +242,8 @@
         function updateACTScoreDisplay(value) {
     document.getElementById('actScoreDisplay').textContent = value;
 }
-function updateSATScoreDisplay(value) {
-    document.getElementById('satScoreDisplay').textContent = value;
+function updateINStateDisplay(value) {
+    document.getElementById('INStateDisplay').textContent = value;
 }
 
 
@@ -287,7 +289,8 @@ const marker = new google.maps.Marker({
     city: city,
     programs: feature.properties.programs ? feature.properties.programs.map(program => program.title) : [],
     actScores: feature.properties.act_scores,
-    // satScores: feature.properties.sat_scores,
+    instate: feature.properties.in_state_tuition,
+    
     icon: '/data/photo.png',
     schoolName: schoolName, // Set schoolName property
 });
@@ -391,7 +394,8 @@ function filterMarkers() {
     const selectedMajor = document.getElementById('majorSelect').value;
    // const selectedDegreeLevel = document.getElementById('degreeLevelSelect').value;
     const selectedACTScore = parseInt(document.getElementById('actScore').value, 10);
-    const selectedSATScore = parseInt(document.getElementById('satScore').value, 10);
+    const selectedInstate = parseInt(document.getElementById('instate').value, 10);
+
     //const searchTerm = document.getElementById('searchBar').value.toLowerCase();
 
     markers.forEach(marker => {
@@ -399,10 +403,11 @@ function filterMarkers() {
         const matchCity = selectedCity === '' || marker.city === selectedCity;
         const matchMajor = selectedMajor === '' || marker.programs.includes(selectedMajor);
        // const matchDegreeLevel = selectedDegreeLevel === '' || marker.degreeLevels.includes(selectedDegreeLevel);
-        const matchACTScore = isNaN(selectedACTScore) || (marker.actScores && marker.actScores.cumulative >= selectedACTScore);
+        const matchACTScore = isNaN(selectedACTScore) || (marker.actScores && marker.actScores.cumulative <= selectedACTScore);
+        const matchInstate = isNaN(selectedInstate) || (marker.instate && marker.instate <= selectedInstate);
+
        // const matchSearch = searchTerm === '' || marker.name.toLowerCase().includes(searchTerm);
-       const matchSACTScore = isNaN(selectedSATScore) || (marker.satScores && marker.satScores.cumulative >= selectedSACTScore);
-       const isVisible = matchState && matchCity && matchMajor && matchACTScore;
+       const isVisible = matchState && matchCity && matchMajor && matchACTScore && matchInstate ;
         
         marker.setVisible(isVisible);
 
@@ -452,4 +457,3 @@ loadGoogleMapsScript();
 </script>
 </body>
 </html>
-
