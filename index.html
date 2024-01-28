@@ -381,9 +381,9 @@
 <label for="outstate" style="color:white">Outstate:</label>
 <input type="range" id="outstate" min="1" max="75000" value="75000" oninput="updateOUTStateDisplay(this.value); filterMarkers();" />
 <span id="OUTStateDisplay" style="color:white">75000</span>
-<label for="distanceSlider" style="color:white">Distance Limit:</label>
+<label for="distanceSlider" style="color:white">Range:</label>
 <input type="range" id="distanceSlider" min="0" max="9000" value="9000" oninput="updateDistanceLimitDisplay(this.value); filterMarkers();" />
-<span id="distanceLimitDisplay" style="color:white">9000 miles</span>
+<span id="distanceLimitDisplay" style="color:white">9000 mi</span>
 
 
 <!-- Add this input field for SAT score -->
@@ -410,7 +410,7 @@
 
     <script>
                 function updateDistanceLimitDisplay(value) {
-    document.getElementById('distanceLimitDisplay').textContent = value + ' miles';
+    document.getElementById('distanceLimitDisplay').textContent = value + ' mi';
 }
         const satToActConversionTable = {
     '590 -615': 9,
@@ -730,18 +730,21 @@ function sendSurveyData(data) {
 
 
 function resetFilters() {
-        document.getElementById('stateSelect').value = '';
-        document.getElementById('citySelect').value = '';
-        document.getElementById('majorSelect').value = '';
-        document.getElementById('actScore').value = 36; // Assuming 36 is the maximum value
-        document.getElementById('actScoreDisplay').textContent = '36';
-        document.getElementById('instate').value = 75000; // Assuming 75000 is the maximum value
-        document.getElementById('INStateDisplay').textContent = '75000';
-        document.getElementById('outstate').value = 75000; // Assuming 75000 is the maximum value
-        document.getElementById('OUTStateDisplay').textContent = '75000';
-        
-        filterMarkers(); // Call the filterMarkers function to apply the reset
-    }
+    document.getElementById('stateSelect').value = '';
+    document.getElementById('citySelect').value = '';
+    document.getElementById('majorSelect').value = '';
+    document.getElementById('actScore').value = 36; // Assuming 36 is the maximum value
+    document.getElementById('actScoreDisplay').textContent = '36';
+    document.getElementById('instate').value = 75000; // Assuming 75000 is the maximum value
+    document.getElementById('INStateDisplay').textContent = '75000';
+    document.getElementById('outstate').value = 75000; // Assuming 75000 is the maximum value
+    document.getElementById('OUTStateDisplay').textContent = '75000';
+    document.getElementById('distanceSlider').value = 9000; // Assuming 9000 is the default distance limit
+    document.getElementById('distanceLimitDisplay').textContent = '9000 mi';
+
+    filterMarkers(); // Call the filterMarkers function to apply the reset
+}
+
 
 
 
