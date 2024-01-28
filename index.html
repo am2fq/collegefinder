@@ -275,11 +275,12 @@
     margin-top: 20px; /* Add margin to lower the app name image */
 }
 .boxed-header {
-    border: 2px solid #08233e; padding: 10px; display: inline-block; background-color: #34495e;  border-radius: 5px; /* Border style, change the color and width as needed /
-      / Padding inside the box /
-      / Ensure the box only takes the necessary width /
-      / Background color of the box, change as needed /
-     / Optional: Add rounded corners */
+    border: 2px solid #08233e; 
+    padding: 10px; display: inline-block; 
+    background-color: #34495e;  
+    border-radius: 5px; 
+    color: white;
+    position: relative;
 }
 
 
@@ -312,11 +313,11 @@
 <input type="range" id="actScore" min="1" max="36" value="36" oninput="updateACTScoreDisplay(this.value); filterMarkers();" />
 <span id="actScoreDisplay" style="color:white">36</span>
 
-<label for="instate" style="color:white">Instate:</label>
+<label for="instate" style="color:white">In-state:</label>
 <input type="range" id="instate" min="1" max="75000" value="75000" oninput="updateINStateDisplay(this.value); filterMarkers();" />
 <span id="INStateDisplay" style="color:white">75000</span>
 
-<label for="outstate" style="color:white">outstate:</label>
+<label for="outstate" style="color:white">Out-state:</label>
 <input type="range" id="outstate" min="1" max="75000" value="75000" oninput="updateOUTStateDisplay(this.value); filterMarkers();" />
 <span id="OUTStateDisplay" style="color:white">75000</span>
 
@@ -470,9 +471,9 @@ markers.push(marker);
          '<p id="popup">' + feature.properties.address + '</p>' +
          '<p id="popup">' + feature.properties.city + ', ' + feature.properties.state + ' ' + feature.properties.zip_code + '</p>' + '<br />' +
          // '<p id="popup">' + "Average ACT Score: " + feature.properties.act_scores.cumulative + '</p>' + '<br />' +
-         '<p id="popup">' + "Average Book Cost: " + feature.properties.book_supply_cost + '</p>' + '<br />' +
-         '<p id="popup">' + "In State Tuition: $" + feature.properties.in_state_tuition + '</p>' +
-         '<p id="popup">' + "Out of State Tuition: $" + feature.properties.out_of_state_tuition + '</p>' + '<br />' +
+         '<p id="popup">' + "Average Book Cost: " + (feature.properties.booksupply_cost ? feature.properties.booksupply_cost.toLocaleString():'N/A') + '</p>' + '<br />' +
+         '<p id="popup">' + "In State Tuition: $" + (feature.properties.in_state_tuition ? feature.properties.in_state_tuition.toLocaleString() : 'N/A') + '</p>' +
+         '<p id="popup">' + "Out of State Tuition: $" + (feature.properties.out_of_state_tuition ? feature.properties.out_of_state_tuition.toLocaleString() : 'N/A')  + '</p>' + '<br />' +
          '<a id="page-link" href="http://' + url_extracted + '" target="_blank">' + "View University Page" + '</a>' +
          '<p id="popup">' + "URL: " + feature.properties.school_url + '</p>'
 
