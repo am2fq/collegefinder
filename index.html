@@ -189,6 +189,22 @@
     font-style: italic;
 }
 
+.satScore{
+    box-shadow: 0 0 8px rgba(245,245,245,0.984);
+    position: relative;
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 570;
+    font-style: italic;
+}
+
+.convertedACTScore{
+    box-shadow: 0 0 8px rgba(245,245,245,0.984);
+    position: relative;
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 570;
+    font-style: italic;
+}
+
 .feedback-button {
     position: absolute;
     top: 30px;
@@ -402,10 +418,10 @@
 
 
 <!-- Add this input field for SAT score -->
-<input type="number" id="satScore" placeholder="SAT Score" oninput="convertSATtoACT()">
+<input type="number" id="satScore" class="satScore" placeholder="SAT Score" oninput="convertSATtoACT()">
 
 <!-- Add this output field for converted ACT score -->
-<input type="number" id="convertedACTScore" placeholder="Converted ACT Score" readonly>
+<input type="number" id="convertedACTScore" class="convertedACTScore" placeholder="Converted ACT Score" readonly>
 
 
 
@@ -613,8 +629,9 @@ markers.push(marker);
          '<p id="popup">' + feature.properties.city + ', ' + feature.properties.state + ' ' + feature.properties.zip_code + '</p>' + '<br />' +
          // '<p id="popup">' + "Average ACT Score: " + feature.properties.act_scores.cumulative + '</p>' + '<br />' +
          '<p id="popup">' + "Average Book Cost: " + feature.properties.book_supply_cost + '</p>' + '<br />' +
-         '<p id="popup">' + "In State Tuition: $" + feature.properties.in_state_tuition + '</p>' +
-         '<p id="popup">' + "Out of State Tuition: $" + feature.properties.out_of_state_tuition + '</p>' + '<br />' +
+         '<p id="popup">' + "In State Tuition: $" + (feature.properties.in_state_tuition ? feature.properties.in_state_tuition.toLocaleString() : 'N/A') + '</p>' +
+         '<p id="popup">' + "Out of State Tuition: $" + (feature.properties.out_of_state_tuition ? feature.properties.out_of_state_tuition.toLocaleString() : 'N/A')
+ + '</p>' + '<br />' +
          '<a id="page-link" href="http://' + url_extracted + '" target="_blank">' + "View University Page" + '</a>' +
          '<p id="popup">' + "URL: " + feature.properties.school_url + '</p>'
 
