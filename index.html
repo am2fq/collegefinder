@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MMD Home</title>
+    <title>Google Map with Filters</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap");
         .info-window {
@@ -275,12 +275,11 @@
     margin-top: 20px; /* Add margin to lower the app name image */
 }
 .boxed-header {
-    border: 2px solid #08233e; 
-    padding: 10px; display: inline-block; 
-    background-color: #34495e;  
-    border-radius: 5px; 
-    color: white;
-    position: relative;
+    border: 2px solid #08233e; padding: 10px; display: inline-block; background-color: #34495e;  border-radius: 5px; /* Border style, change the color and width as needed /
+      / Padding inside the box /
+      / Ensure the box only takes the necessary width /
+      / Background color of the box, change as needed /
+     / Optional: Add rounded corners */
 }
 
 
@@ -313,11 +312,11 @@
 <input type="range" id="actScore" min="1" max="36" value="36" oninput="updateACTScoreDisplay(this.value); filterMarkers();" />
 <span id="actScoreDisplay" style="color:white">36</span>
 
-<label for="instate" style="color:white">In-state:</label>
+<label for="instate" style="color:white">Instate:</label>
 <input type="range" id="instate" min="1" max="75000" value="75000" oninput="updateINStateDisplay(this.value); filterMarkers();" />
 <span id="INStateDisplay" style="color:white">75000</span>
 
-<label for="outstate" style="color:white">Out-state:</label>
+<label for="outstate" style="color:white">outstate:</label>
 <input type="range" id="outstate" min="1" max="75000" value="75000" oninput="updateOUTStateDisplay(this.value); filterMarkers();" />
 <span id="OUTStateDisplay" style="color:white">75000</span>
 
@@ -471,9 +470,9 @@ markers.push(marker);
          '<p id="popup">' + feature.properties.address + '</p>' +
          '<p id="popup">' + feature.properties.city + ', ' + feature.properties.state + ' ' + feature.properties.zip_code + '</p>' + '<br />' +
          // '<p id="popup">' + "Average ACT Score: " + feature.properties.act_scores.cumulative + '</p>' + '<br />' +
-         '<p id="popup">' + "Average Book Cost: " + (feature.properties.booksupply_cost ? feature.properties.booksupply_cost.toLocaleString():'N/A') + '</p>' + '<br />' +
-         '<p id="popup">' + "In State Tuition: $" + (feature.properties.in_state_tuition ? feature.properties.in_state_tuition.toLocaleString() : 'N/A') + '</p>' +
-         '<p id="popup">' + "Out of State Tuition: $" + (feature.properties.out_of_state_tuition ? feature.properties.out_of_state_tuition.toLocaleString() : 'N/A')  + '</p>' + '<br />' +
+         '<p id="popup">' + "Average Book Cost: " + feature.properties.book_supply_cost + '</p>' + '<br />' +
+         '<p id="popup">' + "In State Tuition: $" + feature.properties.in_state_tuition + '</p>' +
+         '<p id="popup">' + "Out of State Tuition: $" + feature.properties.out_of_state_tuition + '</p>' + '<br />' +
          '<a id="page-link" href="http://' + url_extracted + '" target="_blank">' + "View University Page" + '</a>' +
          '<p id="popup">' + "URL: " + feature.properties.school_url + '</p>'
 
@@ -559,50 +558,35 @@ function onStateChange() {
             populateCityDropdown(selectedState);
             filterMarkers();
         }
-       
-/*
-function filterMarkers() {
-    const selectedState = document.getElementById('stateSelect').value;
-    const selectedCity = document.getElementById('citySelect').value;
-    const selectedMajor = document.getElementById('majorSelect').value;
-    const selectedACTScore = parseInt(document.getElementById('actScoreDisplay').value, 10);
-
-    markers.forEach(marker => {
-        const matchState = selectedState === '' || marker.state === selectedState;
-        const matchCity = selectedCity === '' || marker.city === selectedCity;
-        const matchMajor = selectedMajor === '' || marker.programs.includes(selectedMajor);
-        const matchACTScore = isNaN(selectedACTScore) || (marker.actScores && marker.actScores.includes(selectedACTScore));
-
-        marker.setVisible(matchState && matchCity && matchMajor && matchACTScore);
-    });
-}
-*/
+    
 
 
+            
 function submitSurvey() {
-            var fullName = document.getElementById('fullName').value;
-            var contactInfo = document.getElementById('contactInfo').value;
-            var feedback = document.getElementById('feedback').value;
-            var rating = document.getElementById('rating').value;
+    var fullName = document.getElementById('fullName').value;
+    var contactInfo = document.getElementById('contactInfo').value;
+    var feedback = document.getElementById('feedback').value;
+    var rating = document.getElementById('rating').value;  // Get the rating value
 
-            var data = {
-                fullName: fullName,
-                contactInfo: contactInfo,
-                feedback: feedback,
-                rating: rating
-            };
-        
-            sendSurveyData(data);
+    var data = {
+        fullName: fullName,
+        contactInfo: contactInfo,
+        feedback: feedback,
+        rating: rating  // Include the rating field in the data
+    };
 
-            document.getElementById('fullName').value = '';
-            document.getElementById('contactInfo').value = '';
-            document.getElementById('feedback').value = '';
-            document.getElementById('rating').value = '0';
+    sendSurveyData(data);
 
-            // Remove 'active' class from all stars
-            const stars = document.querySelectorAll('.star');
-            stars.forEach(s => s.classList.remove('active'));
+    // Clear the form fields
+    document.getElementById('fullName').value = '';
+    document.getElementById('contactInfo').value = '';
+    document.getElementById('feedback').value = '';
+    document.getElementById('rating').value = '0';
+
+    const stars = document.querySelectorAll('.star');
+    stars.forEach(s => s.classList.remove('active'));
 }
+
 
 function sendSurveyData(data) {
     fetch('/submit-survey', {
@@ -613,7 +597,7 @@ function sendSurveyData(data) {
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.text()) 
+    .then(response => response.text())  // Change this line to handle plain text
     .then(data => {
         console.log('Response from backend:', data);
         alert('Survey submitted successfully!');
@@ -623,6 +607,9 @@ function sendSurveyData(data) {
         alert('Error submitting survey. Please try again.');
     });
 }
+
+
+
 
 
 
