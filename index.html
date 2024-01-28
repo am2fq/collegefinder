@@ -189,7 +189,7 @@
       }
         button:hover {
             background-color: lightgray;
-            transform: rotate(360deg);
+            
         }
         .button-container {
             position: fixed;
@@ -229,6 +229,13 @@
     margin-left: -20px; /* negative margin to bring the app name closer */
     margin-top: 20px; /* Add margin to lower the app name image */
 }
+.boxed-header {
+    border: 2px solid #08233e; padding: 10px; display: inline-block; background-color: #34495e;  border-radius: 5px; /* Border style, change the color and width as needed /
+      / Padding inside the box /
+      / Ensure the box only takes the necessary width /
+      / Background color of the box, change as needed /
+     / Optional: Add rounded corners */
+}
 
 
     </style>
@@ -259,12 +266,12 @@
 <span id="actScoreDisplay" style="color:white">36</span>
 
 <label for="instate" style="color:white">Instate:</label>
-<input type="range" id="instate" min="1" max="50000" value="50000" oninput="updateINStateDisplay(this.value); filterMarkers();" />
-<span id="INStateDisplay" style="color:white">50000</span>
+<input type="range" id="instate" min="1" max="75000" value="75000" oninput="updateINStateDisplay(this.value); filterMarkers();" />
+<span id="INStateDisplay" style="color:white">75000</span>
 
 <label for="outstate" style="color:white">outstate:</label>
-<input type="range" id="outstate" min="1" max="50000" value="50000" oninput="updateOUTStateDisplay(this.value); filterMarkers();" />
-<span id="OUTStateDisplay" style="color:white">50000</span>
+<input type="range" id="outstate" min="1" max="75000" value="75000" oninput="updateOUTStateDisplay(this.value); filterMarkers();" />
+<span id="OUTStateDisplay" style="color:white">75000</span>
 
         <div class="button-container">
             <form><button type="submit" formaction="info.html">
@@ -276,6 +283,25 @@
     <div id="map"></div>
 
     <script>
+                function calculateDistance(userPosition, markerPosition) {
+            const R = 3958.8; // Radius of the Earth in miles
+            const lat1 = userPosition.lat();
+            const lon1 = userPosition.lng();
+            const lat2 = markerPosition.lat();
+            const lon2 = markerPosition.lng();
+
+            const dLat = (lat2 - lat1) * (Math.PI / 180);
+            const dLon = (lon2 - lon1) * (Math.PI / 180);
+
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+            const distance = R * c; // Distance in miles
+            return distance;
+        }
         function updateACTScoreDisplay(value) {
     document.getElementById('actScoreDisplay').textContent = value;
 }
@@ -338,13 +364,16 @@ const marker = new google.maps.Marker({
 markers.push(marker);
                     var url_extracted = feature.properties.school_url;
                     const infoWindow = new google.maps.InfoWindow({
-                        content: '<h3 id="popupTitle">'+feature.properties.NAME+'</h3>'
-                        +'<p id="popup">'+feature.properties.address+'</p>'
-                        +'<p id="popup">'+feature.properties.city+', '+feature.properties.state+' '+feature.properties.zip_code+'</p>'+'<br />'
-                        +'<p id="popup">'+"In State Tuition: $"+(feature.properties.in_state_tuition ? feature.properties.in_state_tuition.toLocaleString() : 'N/A')+'</p>'
-                        +'<p id="popup">'+"Out of State Tuition: $"+(feature.properties.out_of_state_tuition ? feature.properties.out_of_state_tuition.toLocaleString() : 'N/A')+'</p>'+'<br />'
-                        +'<a id="page-link" href=http://'+url_extracted+' target="_blank">'+"View University Page"+'</a>'
-                        +'<p id="popup">'+"URL: "+feature.properties.school_url+'</p>'
+                        content: '<h3 id="popupTitle" class="boxed-header">' + feature.properties.NAME + '</h3>' +
+         '<p id="popup">' + feature.properties.address + '</p>' +
+         '<p id="popup">' + feature.properties.city + ', ' + feature.properties.state + ' ' + feature.properties.zip_code + '</p>' + '<br />' +
+         // '<p id="popup">' + "Average ACT Score: " + feature.properties.act_scores.cumulative + '</p>' + '<br />' +
+         '<p id="popup">' + "Average Book Cost: " + feature.properties.book_supply_cost + '</p>' + '<br />' +
+         '<p id="popup">' + "In State Tuition: $" + feature.properties.in_state_tuition + '</p>' +
+         '<p id="popup">' + "Out of State Tuition: $" + feature.properties.out_of_state_tuition + '</p>' + '<br />' +
+         '<a id="page-link" href="http://' + url_extracted + '" target="_blank">' + "View University Page" + '</a>' +
+         '<p id="popup">' + "URL: " + feature.properties.school_url + '</p>'
+
                     });
                     marker.infoWindow = infoWindow;
 
@@ -366,6 +395,24 @@ markers.push(marker);
                 populateMajorDropdown();
             })
             .catch(error => console.error('Error loading JSON data:', error));
+            navigator.geolocation.getCurrentPosition(position => {
+                const userPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                markers.forEach(marker => {
+                    const markerPosition = marker.getPosition();
+                    const distance = calculateDistance(userPosition, markerPosition);
+
+                    // Update marker title to include distance
+                    marker.setTitle(`${marker.getTitle()} - ${distance.toFixed(2)} miles away`);
+
+                    // You can customize how you want to display the distance on the marker info window
+                    const infoWindowContent = marker.infoWindow.getContent();
+                    marker.infoWindow.setContent(`${infoWindowContent}<br>Distance: ${distance.toFixed(2)} miles`);
+                });
+            }, error => {
+                console.error('Error getting user location:', error);
+            });
+        
     }
 
     function populateStateDropdown() {
