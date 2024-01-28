@@ -386,8 +386,8 @@
 <input type="range" id="outstate" min="1" max="75000" value="75000" oninput="updateOUTStateDisplay(this.value); filterMarkers();" />
 <span id="OUTStateDisplay" style="color:white">75000</span>
 <label for="distanceSlider" style="color:white">Range:</label>
-<input type="range" id="distanceSlider" min="0" max="9000" value="9000" oninput="updateDistanceLimitDisplay(this.value); filterMarkers();" />
-<span id="distanceLimitDisplay" style="color:white">9000 mi</span>
+<input type="range" id="distanceSlider" min="0" max="3000" value="3000" oninput="updateDistanceLimitDisplay(this.value); filterMarkers();" />
+<span id="distanceLimitDisplay" style="color:white">3000+ miles</span>
 
 
 <!-- Add this input field for SAT score -->
@@ -413,8 +413,14 @@
     <div id="map"></div>
 
     <script>
-                function updateDistanceLimitDisplay(value) {
-    document.getElementById('distanceLimitDisplay').textContent = value + ' mi';
+function updateDistanceLimitDisplay(value) {
+    const displayElement = document.getElementById('distanceLimitDisplay');
+
+    if (value < 3000) {
+        displayElement.textContent = value + ' miles';
+    } else {
+        displayElement.textContent = '3000+ miles';
+    }
 }
         const satToActConversionTable = {
     '590 -615': 9,
@@ -744,8 +750,8 @@ function resetFilters() {
     document.getElementById('INStateDisplay').textContent = '75000';
     document.getElementById('outstate').value = 75000; // Assuming 75000 is the maximum value
     document.getElementById('OUTStateDisplay').textContent = '75000';
-    document.getElementById('distanceSlider').value = 9000; // Assuming 9000 is the default distance limit
-    document.getElementById('distanceLimitDisplay').textContent = '9000 mi';
+    document.getElementById('distanceSlider').value = 3000; // Assuming 9000 is the default distance limit
+    document.getElementById('distanceLimitDisplay').textContent = '3000+ mi';
 
     filterMarkers(); // Call the filterMarkers function to apply the reset
 }
@@ -754,7 +760,7 @@ function resetFilters() {
 
 
 
-    function filterMarkers() {
+function filterMarkers() {
     const selectedState = document.getElementById('stateSelect').value;
     const selectedCity = document.getElementById('citySelect').value;
     const selectedMajor = document.getElementById('majorSelect').value;
@@ -783,7 +789,7 @@ function resetFilters() {
         const userPosition = new google.maps.LatLng(33.5, -86.8); // Update with the user's actual location
         const markerPosition = marker.getPosition();
         const distance = calculateDistance(userPosition, markerPosition);
-        const withinDistanceLimit = distance <= distanceLimit;
+        const withinDistanceLimit = distanceLimit === 3000 || (distance <= distanceLimit);
 
         const isVisible = matchState && matchCity && matchMajor && matchACTScore && matchInstate && matchOutstate && withinDistanceLimit;
 
