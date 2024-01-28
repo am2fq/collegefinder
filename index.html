@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Map with Filters</title>
+    
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap");
         .info-window {
@@ -44,6 +45,22 @@
             padding: 0px;
         }
 
+        #resetButton {
+        position: relative;
+        top: 20px;
+        left: 75px;
+        background-color: #e74c3c; /* Red background color */
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #resetButton:hover {
+        background-color: #c0392b; /* Darker red on hover */
+    }
+
         #controls {
             width: 250px;
             position: fixed; /* Change position to fixed */
@@ -56,6 +73,7 @@
             box-shadow: 2px 0 5px rgba(0,0,0,0.3);
             overflow-y: auto;
             transition: left 0.5s;
+            border-right: 5px solid #0b345d;
         }
 
 
@@ -77,39 +95,40 @@
         }
 
         #toggleButton {
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 10px 15px;
-    background-color: #2980b9; /* A shade of blue */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s, box-shadow 0.3s;
+         
+            position: relative;
+            bottom: 0px;   
+            left: 105px;
+            
+            background-color: #2980b9; /* A shade of blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
         .logo-banner-container {
     position: relative;
     display: inline-block; /* Or 'block', depending on your layout */
 }
 
-#popup-window {
-            position: fixed;
-            width: 15%;
-            height: 50%;
-            background: white;
-            border: 1px solid black;
-            padding: 10px;
-            margin: auto;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 10;
-            display: none;
-        }
+    #popup-window {
+        position: fixed;
+        width: 15%;
+        height: 50%;
+        background: #3498db;
+        border: 1px solid black;
+        padding: 10px;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        display: none;
+            }
 
     #star-rating {
     font-size: 24px;
@@ -165,6 +184,23 @@
     font-family: "Inclusive Sans", sans-serif;
     font-weight: 570;
     font-style: italic;
+}
+
+.feedback-button {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 100; /* Ensure it's above other elements */
+}
+
+.feedback-button:hover {
+    background-color: #2980b9;
 }
 
 
@@ -260,6 +296,7 @@
     align-items: center; /* Vertically center items */
     justify-content: center;
     color: white;
+    border-bottom: 5px solid rgb(185, 55, 55);
 }
 
 .banner-logo {
@@ -289,43 +326,7 @@
     <div class="banner-container">
         <img src="Map_My_Degree.png" alt="Logo" class="banner-logo">
         <img src="Map_My_Degree_Words.png" alt="App Name" class="app-name-image">
-    </div>
-    <div id="controls">
-        <button id="toggleButton">&#9776; <!--Toggle Sidebar--> </button><br><br>
-
-        <input type="text" id="searchInput" placeholder="Search for schools" class="searchInput" oninput="searchSchools()">
-        <select id="stateSelect" class="stateSelect" onchange="onStateChange()">
-        <!--<input type="text" id="searchInput" placeholder="Search for schools" oninput="searchSchools()">
-        <select id="stateSelect" onchange="onStateChange()">-->
-            <option value="">Select State</option>
-        </select>
-        <select id="citySelect" class="citySelect" onchange="filterMarkers()">
-            <option value="">Select City</option>
-        </select>
-        <select id="majorSelect" class="majorSelect" onchange="filterMarkers()">
-            <option value="">Select Major</option>
-        </select>
-        <!---
-        <input type="number" id="actScore" placeholder="ACT Score" onchange="filterMarkers()">
-        -->
-        <label for="actScore" style="color:white">ACT Score:</label>
-<input type="range" id="actScore" min="1" max="36" value="36" oninput="updateACTScoreDisplay(this.value); filterMarkers();" />
-<span id="actScoreDisplay" style="color:white">36</span>
-
-<label for="instate" style="color:white">Instate:</label>
-<input type="range" id="instate" min="1" max="75000" value="75000" oninput="updateINStateDisplay(this.value); filterMarkers();" />
-<span id="INStateDisplay" style="color:white">75000</span>
-
-<label for="outstate" style="color:white">outstate:</label>
-<input type="range" id="outstate" min="1" max="75000" value="75000" oninput="updateOUTStateDisplay(this.value); filterMarkers();" />
-<span id="OUTStateDisplay" style="color:white">75000</span>
-
-        <div class="button-container">
-            <form><button type="submit" formaction="info.html">
-            <img src="infologo.png" alt="buttonpng" border="0" />
-        </button></form>
-        
-        <button href="#" id="popup-link">Give us feedback!</button>
+        <button href="#" id="popup-link" class="feedback-button">Give us feedback!</button>
         <div id="popup-window">
             <h1>Feedback Form</h1>
             <form id="surveyForm">
@@ -346,7 +347,51 @@
                 <button type="button" onclick="submitSurvey()">Submit Survey</button>
                 <button id="close-button" onclick="this.form.reset();">Close</button>
             </form>
-        </div>  
+        </div>
+    </div>
+    <div id="controls">
+
+        
+
+        <input type="text" id="searchInput" placeholder="Search for schools" class="searchInput" oninput="searchSchools()">
+        <select id="stateSelect" class="stateSelect" onchange="onStateChange()">
+        <!--<input type="text" id="searchInput" placeholder="Search for schools" oninput="searchSchools()">
+        <select id="stateSelect" onchange="onStateChange()">-->
+            <option value="">Select State</option>
+        </select>
+        <select id="citySelect" class="citySelect" onchange="filterMarkers()">
+            <option value="">Select City</option>
+        </select>
+        <select id="majorSelect" class="majorSelect" onchange="filterMarkers()">
+            <option value="">Select Major</option>
+        </select>
+        <!---
+        <input type="number" id="actScore" placeholder="ACT Score" onchange="filterMarkers()">
+        -->
+        <label for="actScore" style="color:white">ACT Score:</label>
+        
+<input type="range" id="actScore" min="1" max="36" value="36" oninput="updateACTScoreDisplay(this.value); filterMarkers();" />
+<span id="actScoreDisplay" style="color:white">36</span>
+
+
+<label for="instate" style="color:white">Instate:</label>
+<input type="range" id="instate" min="1" max="75000" value="75000" oninput="updateINStateDisplay(this.value); filterMarkers();" />
+<span id="INStateDisplay" style="color:white">75000</span>
+
+<label for="outstate" style="color:white">Outstate:</label>
+<input type="range" id="outstate" min="1" max="75000" value="75000" oninput="updateOUTStateDisplay(this.value); filterMarkers();" />
+<span id="OUTStateDisplay" style="color:white">75000</span>
+
+<button id="resetButton" class="reset-button" onclick="resetFilters()">Reset Filters</button>
+
+        <div class="button-container">
+            <form><button type="submit" formaction="info.html">
+            <img src="infologo.png" alt="buttonpng" border="0" />
+        </button></form>
+        
+        <button id="toggleButton"> Toggle Sidebar </button>
+        
+
     </div>
     </div>
     <div id="map"></div>
@@ -609,7 +654,19 @@ function sendSurveyData(data) {
 }
 
 
-
+function resetFilters() {
+        document.getElementById('stateSelect').value = '';
+        document.getElementById('citySelect').value = '';
+        document.getElementById('majorSelect').value = '';
+        document.getElementById('actScore').value = 36; // Assuming 36 is the maximum value
+        document.getElementById('actScoreDisplay').textContent = '36';
+        document.getElementById('instate').value = 75000; // Assuming 75000 is the maximum value
+        document.getElementById('INStateDisplay').textContent = '75000';
+        document.getElementById('outstate').value = 75000; // Assuming 75000 is the maximum value
+        document.getElementById('OUTStateDisplay').textContent = '75000';
+        
+        filterMarkers(); // Call the filterMarkers function to apply the reset
+    }
 
 
 
