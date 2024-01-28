@@ -56,6 +56,18 @@
             left: -250px;
         }
 
+        #page-link {
+            color: #383734;
+        }
+
+        #page-link:hover {
+            color: black;
+        }
+
+        #page-link:active {
+            color: black;
+        }
+
         #toggleButton {
             padding: 10px 15px;
     background-color: #2980b9; /* A shade of blue */
@@ -109,30 +121,11 @@
             border-color: #2980b9;
             box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
         }
-
-        #searchInput {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            border: 1px solid #34495e;
-            background-color: #ecf0f1;
-            color: #34495e;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        #searchInput:focus {
-            outline: none;
-            border-color: #2980b9;
-            box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
-        }
     </style>
 </head>
 <body>
     <div id="controls">
         <button id="toggleButton">Toggle Sidebar</button>
-        <input type="text" id="searchInput" placeholder="Search for schools" oninput="searchSchools()">
         <select id="stateSelect" onchange="onStateChange()">
             <option value="">Select State</option>
         </select>
@@ -145,13 +138,13 @@
         <!---
         <input type="number" id="actScore" placeholder="ACT Score" onchange="filterMarkers()">
         -->
-        <label for="actScore">ACT Score:</label>
+        <label for="actScore" style="color:white">ACT Score:</label>
 <input type="range" id="actScore" min="1" max="36" value="1" oninput="updateACTScoreDisplay(this.value); filterMarkers();" />
-<span id="actScoreDisplay">1</span>
+<span id="actScoreDisplay" style="color:white">1</span>
 
-<label for="satScore">SAT Score:</label>
+<label for="satScore" style="color:white">SAT Score:</label>
 <input type="range" id="satScore" min="1" max="1600" value="1" oninput="updateSATScoreDisplay(this.value); filterMarkers();" />
-<span id="satScoreDisplay">1</span>
+<span id="satScoreDisplay" style="color:white">1</span>
 
     </div>
     <div id="map"></div>
@@ -198,23 +191,27 @@ function updateSATScoreDisplay(value) {
                         });
                     }
 
-                    const schoolName = feature.properties.NAME; // Extract school name
-const marker = new google.maps.Marker({
-    position: latLng,
-    map: map,
-    title: `${schoolName}, ${city}, ${state}`,
-    state: state,
-    city: city,
-    programs: feature.properties.programs ? feature.properties.programs.map(program => program.title) : [],
-    actScores: feature.properties.act_scores,
-    // satScores: feature.properties.sat_scores,
-    icon: '/data/photo.png',
-    schoolName: schoolName, // Set schoolName property
-});
-markers.push(marker);
-
+                    const marker = new google.maps.Marker({
+                        position: latLng,
+                        map: map,
+                        title: `${feature.properties.NAME}, ${city}, ${state}`,
+                        state: state,
+                        city: city,
+                        programs: feature.properties.programs ? feature.properties.programs.map(program => program.title) : [],
+                        actScores: feature.properties.act_scores,
+                      //  satScores: feature.properties.sat_scores,
+                        icon:'/data/photo.png'
+                    });
+                    markers.push(marker);
+                    var url_extracted = feature.properties.school_url;
                     const infoWindow = new google.maps.InfoWindow({
-                        content: feature.properties.NAME
+                        content: '<h3 id="popupTitle">'+feature.properties.NAME+'</h3>'
+                        +'<p id="popup">'+feature.properties.address+'</p>'
+                        +'<p id="popup">'+feature.properties.city+', '+feature.properties.state+' '+feature.properties.zip_code+'</p>'+'<br />'
+                        +'<p id="popup">'+"In State Tuition: "+feature.properties.in_state_tuition+'</p>'
+                        +'<p id="popup">'+"Out of State Tuition: "+feature.properties.out_of_state_tuition+'</p>'+'<br />'
+                        +'<a id="page-link" href='+url_extracted+' target="_blank">'+"View University Page"+'</a>'
+                        +'<p id="popup">'+"URL: "+feature.properties.school_url+'</p>'
                     });
                     marker.infoWindow = infoWindow;
 
@@ -326,17 +323,6 @@ function filterMarkers() {
     });
 }
 
-function searchSchools() {
-            const searchInput = document.getElementById('searchInput');
-            const searchTerm = searchInput.value.toLowerCase();
-
-            markers.forEach(marker => {
-                const schoolName = marker.schoolName.toLowerCase();
-                const matchSearchTerm = schoolName.includes(searchTerm);
-
-                marker.setVisible(matchSearchTerm);
-            });
-        }
 
 
     document.getElementById('toggleButton').addEventListener('click', function() {
