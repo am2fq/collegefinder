@@ -257,7 +257,9 @@
 <input type="range" id="instate" min="1" max="50000" value="50000" oninput="updateINStateDisplay(this.value); filterMarkers();" />
 <span id="INStateDisplay" style="color:white">50000</span>
 
-
+<label for="outstate" style="color:white">outstate:</label>
+<input type="range" id="outstate" min="1" max="50000" value="50000" oninput="updateOUTStateDisplay(this.value); filterMarkers();" />
+<span id="OUTStateDisplay" style="color:white">50000</span>
 
         <div class="button-container">
             <form><button type="submit" formaction="info.html">
@@ -274,6 +276,9 @@
 }
 function updateINStateDisplay(value) {
     document.getElementById('INStateDisplay').textContent = value;
+}
+function updateOUTStateDisplay(value) {
+    document.getElementById('OUTStateDisplay').textContent = value;
 }
 
 
@@ -320,6 +325,7 @@ const marker = new google.maps.Marker({
     programs: feature.properties.programs ? feature.properties.programs.map(program => program.title) : [],
     actScores: feature.properties.act_scores,
     instate: feature.properties.in_state_tuition,
+    outstate: feature.properties.out_of_state_tuition,
     
     icon: '/data/photo.png',
     schoolName: schoolName, // Set schoolName property
@@ -425,7 +431,7 @@ function filterMarkers() {
    // const selectedDegreeLevel = document.getElementById('degreeLevelSelect').value;
     const selectedACTScore = parseInt(document.getElementById('actScore').value, 10);
     const selectedInstate = parseInt(document.getElementById('instate').value, 10);
-
+    const selectedOutstate = parseInt(document.getElementById('outstate').value, 10);
     //const searchTerm = document.getElementById('searchBar').value.toLowerCase();
 
     markers.forEach(marker => {
@@ -435,9 +441,9 @@ function filterMarkers() {
        // const matchDegreeLevel = selectedDegreeLevel === '' || marker.degreeLevels.includes(selectedDegreeLevel);
         const matchACTScore = isNaN(selectedACTScore) || (marker.actScores && marker.actScores.cumulative <= selectedACTScore);
         const matchInstate = isNaN(selectedInstate) || (marker.instate && marker.instate <= selectedInstate);
-
+        const matchOutstate = isNaN(selectedOutstate) || (marker.outstate && marker.outstate <= selectedOutstate);
        // const matchSearch = searchTerm === '' || marker.name.toLowerCase().includes(searchTerm);
-       const isVisible = matchState && matchCity && matchMajor && matchACTScore && matchInstate ;
+       const isVisible = matchState && matchCity && matchMajor && matchACTScore && matchInstate &&matchOutstate ;
         
         marker.setVisible(isVisible);
 
