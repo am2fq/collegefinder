@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Map with Filters</title>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap");
         .info-window {
             font-family: 'Arial', sans-serif;
             color: #333;
@@ -41,10 +41,10 @@
 
         #controls {
             width: 250px;
-            height: 100vh;
-            position: absolute;
+            position: fixed; /* Change position to fixed */
             top: 0;
             left: 0;
+            bottom: 0; /* Stretch to the bottom */
             z-index: 5;
             background: #2c3e50;
             padding: 20px;
@@ -52,6 +52,7 @@
             overflow-y: auto;
             transition: left 0.5s;
         }
+
 
         #controls.collapsed {
             left: -250px;
@@ -118,7 +119,7 @@
 
 
 .logo {
-    width: 200px; /* Adjust as per your logo's size */
+    width: 200px; 
     height: auto;
     display: block;
 }
@@ -202,13 +203,41 @@
           width: 20px;
           height: 20px;
         }
+        .banner-container {
+    background-color: #333;
+    padding: 10px 0;
+    display: flex;
+    align-items: center; /* Vertically center items */
+    justify-content: center;
+    color: white;
+}
+
+.banner-logo {
+    width: 250px; /* Adjust width as needed */
+    height: auto;
+    margin-right: -15px; /*  negative margin to bring the logo closer */
+}
+
+.app-name-image {
+    width: 450px; /* Adjust width as needed */
+    height: auto;
+    margin-left: -20px; /* negative margin to bring the app name closer */
+    margin-top: 20px; /* Add margin to lower the app name image */
+}
+
+
     </style>
 </head>
 <body>
+    <div class="banner-container">
+        <img src="Map_My_Degree.png" alt="Logo" class="banner-logo">
+        <img src="Map_My_Degree_Words.png" alt="App Name" class="app-name-image">
+    </div>
     <div id="controls">
-        <button id="toggleButton">Toggle Sidebar</button>
         <input type="text" id="searchInput" placeholder="Search for schools" class="searchInput" oninput="searchSchools()">
         <select id="stateSelect" class="stateSelect" onchange="onStateChange()">
+        <input type="text" id="searchInput" placeholder="Search for schools" oninput="searchSchools()">
+        <select id="stateSelect" onchange="onStateChange()">
             <option value="">Select State</option>
         </select>
         <select id="citySelect" class="citySelect" onchange="filterMarkers()">
@@ -234,6 +263,7 @@
             <form><button type="submit" formaction="info.html">
             <img src="infologo.png" alt="buttonpng" border="0" />
         </button></form>
+        <button id="toggleButton">Toggle Sidebar</button>
         </div>
     </div>
     <div id="map"></div>
