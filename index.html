@@ -316,11 +316,22 @@
     margin-top: 20px; /* Add margin to lower the app name image */
 }
 .boxed-header {
-    border: 2px solid #08233e; padding: 10px; display: inline-block; background-color: #34495e;  border-radius: 5px; /* Border style, change the color and width as needed /
+    border: 2px solid #08233e; padding: 10px; display: inline-block; background-color: #34495e;  border-radius: 5px; color: white;/* Border style, change the color and width as needed /
       / Padding inside the box /
       / Ensure the box only takes the necessary width /
       / Background color of the box, change as needed /
      / Optional: Add rounded corners */
+}
+.banner-text {
+    color: white;
+    text-align: center;
+    margin: 0;
+    
+    /* Add a border to the text */
+    border: 2px solid white;
+    padding: 10px; /* Optional: Add padding around the text within the box */
+
+    font-family: "Inclusive Sans", sans-serif;
 }
 
 
@@ -356,7 +367,7 @@
     <div id="controls">
 
         
-
+        <h1 class="banner-text">School Search Prefrences</h1><br>
         <input type="text" id="searchInput" placeholder="Search for schools" class="searchInput" oninput="searchSchools()">
         <select id="stateSelect" class="stateSelect" onchange="onStateChange()">
         <!--<input type="text" id="searchInput" placeholder="Search for schools" oninput="searchSchools()">
@@ -372,7 +383,7 @@
         <!---
         <input type="number" id="actScore" placeholder="ACT Score" onchange="filterMarkers()">
         -->
-        <label for="actScore" style="color:rgb(255, 255, 255)">ACT Score:</label>
+        <label for="actScore" style="color:white">ACT Score:</label>
         
 <input type="range" id="actScore" min="1" max="36" value="36" oninput="updateACTScoreDisplay(this.value); filterMarkers();" />
 <span id="actScoreDisplay" style="color:white">36</span>
