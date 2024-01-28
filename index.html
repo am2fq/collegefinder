@@ -102,7 +102,7 @@
             left: 105px;
             
             border-radius: 15px;
-            background-color: #2980b9; /* A shade of blue */
+            background-color: #2c526b; /* A shade of blue */
             color: white;
             border: none;
             border-radius: 15px;
@@ -120,7 +120,7 @@
         position: fixed;
         width: 15%;
         height: 50%;
-        background: #3498db;
+        background: #2c526b;
         border-radius: 15px;
         border: 1px solid black;
         padding: 10px;
@@ -193,7 +193,7 @@
     position: absolute;
     top: 30px;
     right: 30px;
-    background-color: #3498db;
+    background-color: #2c526b;
     color: white;
     border: none;
     padding: 10px;
@@ -322,17 +322,19 @@
       / Background color of the box, change as needed /
      / Optional: Add rounded corners */
 }
+
 .banner-text {
-    color: white;
+    color: #3c86b7;
     text-align: center;
     margin: 0;
     
     /* Add a border to the text */
-    border: 2px solid white;
+    border: 2px solid #2c526b;
     padding: 10px; /* Optional: Add padding around the text within the box */
 
-    font-family: "Inclusive Sans", sans-serif;
+    font-family: "Gill Sans Extrabold", Gill Sans MT; /* Use the correct font name for Gill Sans Extrabold */
 }
+
 
 
     </style>
@@ -367,7 +369,7 @@
     <div id="controls">
 
         
-        <h1 class="banner-text">School Search Prefrences</h1><br>
+        <h1 class="banner-text">School Search Preferences</h1><br>
         <input type="text" id="searchInput" placeholder="Search for schools" class="searchInput" oninput="searchSchools()">
         <select id="stateSelect" class="stateSelect" onchange="onStateChange()">
         <!--<input type="text" id="searchInput" placeholder="Search for schools" oninput="searchSchools()">
@@ -612,7 +614,7 @@ markers.push(marker);
          '<p id="popup">' + feature.properties.address + '</p>' +
          '<p id="popup">' + feature.properties.city + ', ' + feature.properties.state + ' ' + feature.properties.zip_code + '</p>' + '<br />' +
          // '<p id="popup">' + "Average ACT Score: " + feature.properties.act_scores.cumulative + '</p>' + '<br />' +
-         '<p id="popup">' + "Average Book Cost: " + feature.properties.book_supply_cost + '</p>' + '<br />' +
+         '<p id="popup">' + "Average Book Cost: $" + feature.properties.book_supply_cost + '</p>' + '<br />' +
          '<p id="popup">' + "In State Tuition: $" + feature.properties.in_state_tuition + '</p>' +
          '<p id="popup">' + "Out of State Tuition: $" + feature.properties.out_of_state_tuition + '</p>' + '<br />' +
          '<a id="page-link" href="http://' + url_extracted + '" target="_blank">' + "View University Page" + '</a>' +
