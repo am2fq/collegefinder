@@ -127,6 +127,36 @@
             border-color: #2980b9;
             box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
         }
+        button {
+          
+          border-radius: 8px;
+          cursor: pointer;
+          appearance: none;
+          background-color: white;
+          transition: transform .7s ease-in-out;
+          
+      }
+        button:hover {
+            background-color: lightgray;
+            transform: rotate(360deg);
+        }
+        .button-container {
+            position: fixed;
+            bottom: 5px;
+            left: 5px;
+            /*transform: translateX(-50%);*/
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .button-container form {
+            margin: 5px;
+        }
+        img {
+          width: 20px;
+          height: 20px;
+        }
     </style>
 </head>
 <body>
@@ -153,6 +183,11 @@
 <input type="range" id="satScore" min="1" max="1600" value="1" oninput="updateSATScoreDisplay(this.value); filterMarkers();" />
 <span id="satScoreDisplay">1</span>
 
+        <div class="button-container">
+            <form><button type="submit" formaction="info.html">
+            <img src="infologo.png" alt="buttonpng" border="0" />
+        </button></form>
+        </div>
     </div>
     <div id="map"></div>
 
