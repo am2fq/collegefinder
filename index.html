@@ -187,7 +187,7 @@
 }
 
 .feedback-button {
-    position: fixed;
+    position: absolute;
     top: 30px;
     right: 30px;
     background-color: #3498db;
@@ -381,6 +381,18 @@
 <label for="outstate" style="color:white">Outstate:</label>
 <input type="range" id="outstate" min="1" max="75000" value="75000" oninput="updateOUTStateDisplay(this.value); filterMarkers();" />
 <span id="OUTStateDisplay" style="color:white">75000</span>
+<label for="distanceSlider" style="color:white">Distance Limit:</label>
+<input type="range" id="distanceSlider" min="0" max="9000" value="9000" oninput="updateDistanceLimitDisplay(this.value); filterMarkers();" />
+<span id="distanceLimitDisplay" style="color:white">9000 miles</span>
+
+
+<!-- Add this input field for SAT score -->
+<input type="number" id="satScore" placeholder="SAT Score" oninput="convertSATtoACT()">
+
+<!-- Add this output field for converted ACT score -->
+<input type="number" id="convertedACTScore" placeholder="Converted ACT Score" readonly>
+
+
 
 <button id="resetButton" class="reset-button" onclick="resetFilters()">Reset Filters</button>
 
@@ -397,6 +409,69 @@
     <div id="map"></div>
 
     <script>
+                function updateDistanceLimitDisplay(value) {
+    document.getElementById('distanceLimitDisplay').textContent = value + ' miles';
+}
+        const satToActConversionTable = {
+    '590 -615': 9,
+    '616 - 645': 10,
+    '646-685': 11,
+    '686-725': 12,
+    '726-775': 13,
+    '776-825': 14,
+    '826-875': 15,
+    '876-915': 16,
+    '916-955': 17,
+    '956-985': 18,
+    '986-1015': 19,
+    '1016-1055': 20,
+    '1056-1095': 21,
+    '1096-1125': 22,
+    '1126-1155': 23,
+    '1156-1195': 24,
+    '1196-1225': 25,
+    '1226-1255': 26,
+    '1256-1295': 27,
+    '1296-1325': 28,
+    '1326-1355': 29,
+    '1356-1385': 30,
+    '1386-1415': 31,
+    '1416-1445': 32,
+    '1446-1485': 33,
+    '1486-1525': 34,
+    '1526-1565': 35,
+    '1566-1600': 36,
+    
+    // Add more entries as needed
+    // Example: '431-440': 16, '441-450': 17, ...
+};
+
+function convertSATtoACT() {
+    const satScoreInput = document.getElementById('satScore');
+    const convertedACTScoreOutput = document.getElementById('convertedACTScore');
+
+    // Use the lookup table for conversion with ranges
+    const satScore = parseInt(satScoreInput.value, 10);
+
+    // Find the range for the SAT score
+    let range = '';
+    for (const key in satToActConversionTable) {
+        const [start, end] = key.split('-').map(Number);
+        if (satScore >= start && satScore <= end) {
+            range = key;
+            break;
+        }
+    }
+
+    // Get the corresponding ACT score from the range
+    const convertedACTScore = satToActConversionTable[range] !== undefined ? satToActConversionTable[range] : 'N/A';
+
+    // Update the converted ACT score display
+    convertedACTScoreOutput.value = convertedACTScore;
+
+    // Trigger marker filtering with the new converted ACT score
+    filterMarkers();
+}
 
         var popupLink = document.getElementById("popup-link");
                 var popupWindow = document.getElementById("popup-window");
@@ -671,27 +746,39 @@ function resetFilters() {
 
 
 
-function filterMarkers() {
+    function filterMarkers() {
     const selectedState = document.getElementById('stateSelect').value;
     const selectedCity = document.getElementById('citySelect').value;
     const selectedMajor = document.getElementById('majorSelect').value;
-   // const selectedDegreeLevel = document.getElementById('degreeLevelSelect').value;
     const selectedACTScore = parseInt(document.getElementById('actScore').value, 10);
     const selectedInstate = parseInt(document.getElementById('instate').value, 10);
     const selectedOutstate = parseInt(document.getElementById('outstate').value, 10);
-    //const searchTerm = document.getElementById('searchBar').value.toLowerCase();
+    const distanceLimit = parseInt(document.getElementById('distanceSlider').value, 10);
 
     markers.forEach(marker => {
+        // Check if any relevant field is undefined or null
+        const hasUndefinedOrNull = Object.values(marker).some(value => value === undefined || value === null);
+
+        if (hasUndefinedOrNull) {
+            marker.setVisible(false);
+            return; // Skip the rest of the logic for this marker
+        }
+
         const matchState = selectedState === '' || marker.state === selectedState;
         const matchCity = selectedCity === '' || marker.city === selectedCity;
         const matchMajor = selectedMajor === '' || marker.programs.includes(selectedMajor);
-       // const matchDegreeLevel = selectedDegreeLevel === '' || marker.degreeLevels.includes(selectedDegreeLevel);
         const matchACTScore = isNaN(selectedACTScore) || (marker.actScores && marker.actScores.cumulative <= selectedACTScore);
-        const matchInstate = isNaN(selectedInstate) || (marker.instate && marker.instate <= selectedInstate);
+        const matchInstate = (marker.instate !== null && !isNaN(selectedInstate)) ? (marker.instate <= selectedInstate) : true;
         const matchOutstate = isNaN(selectedOutstate) || (marker.outstate && marker.outstate <= selectedOutstate);
-       // const matchSearch = searchTerm === '' || marker.name.toLowerCase().includes(searchTerm);
-       const isVisible = matchState && matchCity && matchMajor && matchACTScore && matchInstate &&matchOutstate ;
-        
+
+        // Check if the marker is within the specified distance limit
+        const userPosition = new google.maps.LatLng(33.5, -86.8); // Update with the user's actual location
+        const markerPosition = marker.getPosition();
+        const distance = calculateDistance(userPosition, markerPosition);
+        const withinDistanceLimit = distance <= distanceLimit;
+
+        const isVisible = matchState && matchCity && matchMajor && matchACTScore && matchInstate && matchOutstate && withinDistanceLimit;
+
         marker.setVisible(isVisible);
 
         // Close the info window associated with the marker if it's not visible
