@@ -1,0 +1,1732 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University of Alabama in Huntsville",
+        "zip_code": "35899",
+        "city": "Huntsville",
+        "state": "AL",
+        "address": "301 Sparkman Dr",
+        "school_url": "www.uah.edu/",
+        "online_only": 0,
+        "booksupply_cost": 2300,
+        "in_state_tuition": 11488,
+        "out_of_state_tuition": 23884,
+        "act_midpoint_math": 26,
+        "act_midpoint_english": 28,
+        "act_midpoint_writing": null,
+        "act_midpoint_cumulative": 28,
+        "sat_midpoint_math": 655,
+        "sat_midpoint_writing": null,
+        "sat_midpoint_critical_reading": 640,
+        "programs": [
+          {
+            "title": "Communication and Media Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer and Information Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer/Information Technology Administration and Management.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Education, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Special Education and Teaching.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Levels and Methods.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Engineering, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Aerospace, Aeronautical and Astronautical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Chemical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Civil Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Electrical, Electronics and Communications Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mechanical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Industrial Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Engineering, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Linguistic, Comparative, and Related Language Studies and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "English Language and Literature, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Rhetoric and Composition/Writing Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Biology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mathematics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Multi/Interdisciplinary Studies, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health and Physical Education/Fitness.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Philosophy.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Chemistry.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Physics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Physical Sciences, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Psychology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Political Science and Government.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Sociology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Drama/Theatre Arts and Stagecraft.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Fine and Studio Arts.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Music.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Registered Nursing, Nursing Administration, Nursing Research and Clinical Nursing.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business Administration, Management and Operations.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Accounting and Related Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business/Managerial Economics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Finance and Financial Management Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Management Information Systems and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Marketing.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "History.",
+            "credential_level": "Bachelor's Degree"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.640449,
+          34.724557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Alabama A & M University",
+        "zip_code": "35762",
+        "city": "Normal",
+        "state": "AL",
+        "address": "4900 Meridian Street",
+        "school_url": "www.aamu.edu/",
+        "online_only": 0,
+        "booksupply_cost": 1600,
+        "in_state_tuition": 10024,
+        "out_of_state_tuition": 18634,
+        "act_midpoint_math": 17,
+        "act_midpoint_english": 17,
+        "act_midpoint_writing": null,
+        "act_midpoint_cumulative": 18,
+        "sat_midpoint_math": 460,
+        "sat_midpoint_writing": 414,
+        "sat_midpoint_critical_reading": 475,
+        "programs": [
+          {
+            "title": "Agriculture, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Agricultural Business and Management.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Animal Sciences.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Food Science and Technology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Plant Sciences.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Agriculture, Agriculture Operations, and Related Sciences, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Forestry.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "City/Urban, Community and Regional Planning.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Ethnic, Cultural Minority, Gender, and Group Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Audiovisual Communications Technologies/Technicians.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer and Information Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Special Education and Teaching.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Levels and Methods.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Subject Areas.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Civil Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Electrical, Electronics and Communications Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mechanical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Electrical Engineering Technologies/Technicians.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Industrial Production Technologies/Technicians.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mechanical Engineering Related Technologies/Technicians.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Construction Engineering Technologies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Family and Consumer Sciences/Human Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "English Language and Literature, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Liberal Arts and Sciences, General Studies and Humanities.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Biology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mathematics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health and Physical Education/Fitness.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Chemistry.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Physics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Psychology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Criminal Justice and Corrections.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Social Work.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Political Science and Government.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Sociology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Fine and Studio Arts.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Music.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business Administration, Management and Operations.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Accounting and Related Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Entrepreneurial and Small Business Operations.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Finance and Financial Management Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Marketing.",
+            "credential_level": "Bachelor's Degree"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.568502,
+          34.783368
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University of Alabama at Birmingham",
+        "zip_code": "35294-0110",
+        "city": "Birmingham",
+        "state": "AL",
+        "address": "Administration Bldg Suite 1070",
+        "school_url": "https://www.uab.edu/",
+        "online_only": 0,
+        "booksupply_cost": 1200,
+        "in_state_tuition": 8568,
+        "out_of_state_tuition": 20400,
+        "act_midpoint_math": 25,
+        "act_midpoint_english": 28,
+        "act_midpoint_writing": null,
+        "act_midpoint_cumulative": 27,
+        "sat_midpoint_math": 644,
+        "sat_midpoint_writing": null,
+        "sat_midpoint_critical_reading": 637,
+        "programs": [
+          {
+            "title": "Ethnic, Cultural Minority, Gender, and Group Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Communication and Media Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer and Information Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Levels and Methods.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Subject Areas.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Engineering, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Biomedical/Medical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Civil Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Electrical, Electronics and Communications Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Materials Engineering",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mechanical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Linguistic, Comparative, and Related Language Studies and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Romance Languages, Literatures, and Linguistics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "English Language and Literature, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Liberal Arts and Sciences, General Studies and Humanities.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Biology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Microbiological Sciences and Immunology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Genetics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Neurobiology and Neurosciences.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mathematics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Philosophy.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Chemistry.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Physics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Psychology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Criminal Justice and Corrections.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Security Science and Technology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Social Work.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Anthropology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Political Science and Government.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Sociology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Social Sciences, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Drama/Theatre Arts and Stagecraft.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Fine and Studio Arts.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Music.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health Services/Allied Health/Health Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health and Medical Administrative Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Allied Health Diagnostic, Intervention, and Treatment Professions.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Clinical/Medical Laboratory Science/Research and Allied Professions.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Public Health.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Registered Nursing, Nursing Administration, Nursing Research and Clinical Nursing.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business Administration, Management and Operations.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Accounting and Related Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business/Managerial Economics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Finance and Financial Management Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Human Resources Management and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Management Information Systems and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Marketing.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "General Sales, Merchandising and Related Marketing Operations.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "History.",
+            "credential_level": "Bachelor's Degree"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.799345,
+          33.505697
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Alabama State University",
+        "zip_code": "36104-0271",
+        "city": "Montgomery",
+        "state": "AL",
+        "address": "915 S Jackson Street",
+        "school_url": "www.alasu.edu/",
+        "online_only": 0,
+        "booksupply_cost": 1600,
+        "in_state_tuition": 11068,
+        "out_of_state_tuition": 19396,
+        "act_midpoint_math": 17,
+        "act_midpoint_english": 17,
+        "act_midpoint_writing": null,
+        "act_midpoint_cumulative": 18,
+        "sat_midpoint_math": 457,
+        "sat_midpoint_writing": null,
+        "sat_midpoint_critical_reading": 488,
+        "programs": [
+          {
+            "title": "Communication and Media Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Information Science/Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer Science.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Education, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Special Education and Teaching.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Levels and Methods.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Subject Areas.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Biomedical/Medical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "English Language and Literature, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Biology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Ecology, Evolution, Systematics, and Population Biology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mathematics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Multi/Interdisciplinary Studies, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Parks, Recreation and Leisure Facilities Management.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Chemistry.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Psychology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Criminal Justice and Corrections.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Security Science and Technology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Social Work.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Political Science and Government.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Dance.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Drama/Theatre Arts and Stagecraft.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Fine and Studio Arts.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Music.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health and Medical Administrative Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Rehabilitation and Therapeutic Professions.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business Administration, Management and Operations.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Accounting and Related Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Finance and Financial Management Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Marketing.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "History.",
+            "credential_level": "Bachelor's Degree"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.295677,
+          32.364317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The University of Alabama",
+        "zip_code": "35487-0100",
+        "city": "Tuscaloosa",
+        "state": "AL",
+        "address": "739 University Blvd",
+        "school_url": "www.ua.edu/",
+        "online_only": 0,
+        "booksupply_cost": 800,
+        "in_state_tuition": 11620,
+        "out_of_state_tuition": 31090,
+        "act_midpoint_math": 24,
+        "act_midpoint_english": 27,
+        "act_midpoint_writing": 8,
+        "act_midpoint_cumulative": 26,
+        "sat_midpoint_math": 610,
+        "sat_midpoint_writing": 540,
+        "sat_midpoint_critical_reading": 610,
+        "programs": [
+          {
+            "title": "Natural Resources Conservation and Research.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Area Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Ethnic, Cultural Minority, Gender, and Group Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Communication and Media Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Journalism.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Radio, Television, and Digital Communication.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Public Relations, Advertising, and Applied Communication.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer and Information Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer/Information Technology Administration and Management.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Educational Assessment, Evaluation, and Research.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Special Education and Teaching.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Levels and Methods.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Subject Areas.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Aerospace, Aeronautical and Astronautical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Architectural Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Chemical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Civil Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Electrical, Electronics and Communications Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Environmental/Environmental Health Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mechanical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Metallurgical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Construction Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Linguistic, Comparative, and Related Language Studies and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Germanic Languages, Literatures, and Linguistics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Romance Languages, Literatures, and Linguistics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Family and Consumer Sciences/Human Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Family and Consumer Economics and Related Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Foods, Nutrition, and Related Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Human Development, Family Studies, and Related Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Apparel and Textiles.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "English Language and Literature, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Biology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Microbiological Sciences and Immunology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Ecology, Evolution, Systematics, and Population Biology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mathematics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Multi-/Interdisciplinary Studies, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health and Physical Education/Fitness.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Philosophy.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Religion/Religious Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Chemistry.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Geological and Earth Sciences/Geosciences.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Physics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Psychology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Criminal Justice and Corrections.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Social Work.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Anthropology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Criminology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Geography and Cartography.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "International Relations and National Security Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Political Science and Government.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Sociology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Dance.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Design and Applied Arts.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Drama/Theatre Arts and Stagecraft.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Fine and Studio Arts.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Music.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Communication Disorders Sciences and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Allied Health Diagnostic, Intervention, and Treatment Professions.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Public Health.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Dietetics and Clinical Nutrition Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Registered Nursing, Nursing Administration, Nursing Research and Clinical Nursing.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health Professions and Related Clinical Sciences, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business Administration, Management and Operations.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Accounting and Related Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business/Managerial Economics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Finance and Financial Management Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Hospitality Administration/Management.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Management Information Systems and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Management Sciences and Quantitative Methods.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Marketing.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "History.",
+            "credential_level": "Bachelor's Degree"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.545978,
+          33.211875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University of West Alabama",
+        "zip_code": "35470",
+        "city": "Livingston",
+        "state": "AL",
+        "address": "Station One",
+        "school_url": "www.uwa.edu/",
+        "online_only": 0,
+        "booksupply_cost": 1216,
+        "in_state_tuition": 10990,
+        "out_of_state_tuition": 20090,
+        "act_midpoint_math": 18,
+        "act_midpoint_english": 19,
+        "act_midpoint_writing": null,
+        "act_midpoint_cumulative": 19,
+        "sat_midpoint_math": 480,
+        "sat_midpoint_writing": 475,
+        "sat_midpoint_critical_reading": 450,
+        "programs": [
+          {
+            "title": "Communication and Media Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Special Education and Teaching.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Levels and Methods.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Subject Areas.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Engineering Technology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Engineering Technologies/Technicians, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "English Language and Literature, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Biology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Ecology, Evolution, Systematics, and Population Biology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mathematics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Biological and Physical Sciences.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Multi/Interdisciplinary Studies, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health and Physical Education/Fitness.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Chemistry.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Psychology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Homeland Security, Law Enforcement, Firefighting and Related Protective Services, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Economics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Sociology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health Services/Allied Health/Health Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Allied Health Diagnostic, Intervention, and Treatment Professions.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business Administration, Management and Operations.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Accounting and Related Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Finance and Financial Management Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Management Information Systems and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Marketing.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "History.",
+            "credential_level": "Bachelor's Degree"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.186329,
+          32.588132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University of North Alabama",
+        "zip_code": "35632-0001",
+        "city": "Florence",
+        "state": "AL",
+        "address": "One Harrison Plaza",
+        "school_url": "www.una.edu/",
+        "online_only": 0,
+        "booksupply_cost": 1500,
+        "in_state_tuition": 10620,
+        "out_of_state_tuition": 20220,
+        "act_midpoint_math": null,
+        "act_midpoint_english": null,
+        "act_midpoint_writing": null,
+        "act_midpoint_cumulative": null,
+        "sat_midpoint_math": null,
+        "sat_midpoint_writing": null,
+        "sat_midpoint_critical_reading": null,
+        "programs": [
+          {
+            "title": "Interior Architecture.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Communication and Media Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer and Information Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Culinary Arts and Related Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Levels and Methods.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Engineering Technology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Linguistic, Comparative, and Related Language Studies and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Germanic Languages, Literatures, and Linguistics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Romance Languages, Literatures, and Linguistics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Family and Consumer Sciences/Human Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Apparel and Textiles.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "English Language and Literature, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Liberal Arts and Sciences, General Studies and Humanities.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Biology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Ecology, Evolution, Systematics, and Population Biology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mathematics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Multi-/Interdisciplinary Studies, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Sustainability Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Multi/Interdisciplinary Studies, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health and Physical Education/Fitness.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Parks, Recreation, Leisure, and Fitness Studies, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Chemistry.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Physics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Physical Sciences, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Psychology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Research and Experimental Psychology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Criminal Justice and Corrections.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Social Work.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Social Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Geography and Cartography.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Political Science and Government.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Sociology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Drama/Theatre Arts and Stagecraft.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Fine and Studio Arts.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Music.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Arts, Entertainment,and Media Management.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health and Medical Administrative Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Registered Nursing, Nursing Administration, Nursing Research and Clinical Nursing.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business Administration, Management and Operations.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Accounting and Related Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business/Managerial Economics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Finance and Financial Management Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Hospitality Administration/Management.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Management Information Systems and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Marketing.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "History.",
+            "credential_level": "Bachelor's Degree"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.680407,
+          34.80731
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University of South Alabama",
+        "zip_code": "36688-0002",
+        "city": "Mobile",
+        "state": "AL",
+        "address": "307 N University Blvd",
+        "school_url": "www.southalabama.edu/",
+        "online_only": 0,
+        "booksupply_cost": 1300,
+        "in_state_tuition": 8756,
+        "out_of_state_tuition": 17012,
+        "act_midpoint_math": 21,
+        "act_midpoint_english": 23,
+        "act_midpoint_writing": 7,
+        "act_midpoint_cumulative": 23,
+        "sat_midpoint_math": 545,
+        "sat_midpoint_writing": 500,
+        "sat_midpoint_critical_reading": 555,
+        "programs": [
+          {
+            "title": "Communication and Media Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer and Information Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Information Science/Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer Science.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Special Education and Teaching.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Levels and Methods.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Teacher Education and Professional Development, Specific Subject Areas.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Education, Other.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Chemical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Civil Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Electrical, Electronics and Communications Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Mechanical Engineering.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Linguistic, Comparative, and Related Language Studies and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "English Language and Literature, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Biology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Statistics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Multi-/Interdisciplinary Studies, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "International/Global Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Parks, Recreation and Leisure Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health and Physical Education/Fitness.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Philosophy.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Atmospheric Sciences and Meteorology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Chemistry.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Geological and Earth Sciences/Geosciences.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Physics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Psychology, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Criminal Justice and Corrections.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Social Work.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Anthropology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Geography and Cartography.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Political Science and Government.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Sociology.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Drama/Theatre Arts and Stagecraft.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Fine and Studio Arts.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Music.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Communication Disorders Sciences and Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Allied Health Diagnostic, Intervention, and Treatment Professions.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Health/Medical Preparatory Programs.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Medical Illustration and Informatics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Registered Nursing, Nursing Administration, Nursing Research and Clinical Nursing.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business/Commerce, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business Administration, Management and Operations.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Accounting and Related Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Finance and Financial Management Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Hospitality Administration/Management.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "International Business.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Marketing.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "History.",
+            "credential_level": "Bachelor's Degree"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.178711,
+          30.696033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Strayer University-Alabama",
+        "zip_code": "35203",
+        "city": "Birmingham",
+        "state": "AL",
+        "address": "2 20th Street North, #150",
+        "school_url": "www.strayer.edu/campus-locations/alabama/birmingham",
+        "online_only": 0,
+        "booksupply_cost": 1350,
+        "in_state_tuition": 13515,
+        "out_of_state_tuition": 13515,
+        "act_midpoint_math": null,
+        "act_midpoint_english": null,
+        "act_midpoint_writing": null,
+        "act_midpoint_cumulative": null,
+        "sat_midpoint_math": null,
+        "sat_midpoint_writing": null,
+        "sat_midpoint_critical_reading": null,
+        "programs": [
+          {
+            "title": "Computer and Information Sciences, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Information Science/Studies.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Computer/Information Technology Administration and Management.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Criminal Justice and Corrections.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Economics.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Business/Commerce, General.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "Accounting and Related Services.",
+            "credential_level": "Bachelor's Degree"
+          },
+          {
+            "title": "International Business.",
+            "credential_level": "Bachelor's Degree"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.80574,
+          33.513375
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Map with Filters</title>
+    <style>
+        .info-window {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .info-window-header {
+            background-color: #f2f2f2;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .info-window-body {
+            padding: 15px;
+        }
+
+        #map {
+            width: calc(100% - 250px);
+            height: 100vh;
+            float: right;
+            transition: width 0.5s;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #controls {
+            width: 250px;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            background: #2c3e50;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+            overflow-y: auto;
+            transition: left 0.5s;
+        }
+
+        #controls.collapsed {
+            left: -250px;
+        }
+
+        #toggleButton {
+            padding: 10px 15px;
+    background-color: #2980b9; /* A shade of blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .logo-banner-container {
+    position: relative;
+    display: inline-block; /* Or 'block', depending on your layout */
+}
+
+.logo {
+    width: 200px; /* Adjust as per your logo's size */
+    height: auto;
+    display: block;
+}
+
+.banner {
+    position: absolute;
+    top: 50%; /* Adjust to place it over the desired part of the logo */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    transform: translateY(-50%); /* Centers the banner vertically */
+    font-size: 18px; /* Adjust as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+}
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #34495e;
+            background-color: #ecf0f1;
+            color: #34495e;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        select:focus, input[type="number"]:focus {
+            outline: none;
+            border-color: #2980b9;
+            box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <button id="toggleButton">Toggle Sidebar</button>
+        <select id="stateSelect" onchange="onStateChange()">
+            <option value="">Select State</option>
+        </select>
+        <select id="citySelect" onchange="filterMarkers()">
+            <option value="">Select City</option>
+        </select>
+        <select id="majorSelect" onchange="filterMarkers()">
+            <option value="">Select Major</option>
+        </select>
+        <!---
+        <input type="number" id="actScore" placeholder="ACT Score" onchange="filterMarkers()">
+        -->
+        <label for="actScore">ACT Score:</label>
+<input type="range" id="actScore" min="1" max="36" value="1" oninput="updateACTScoreDisplay(this.value); filterMarkers();" />
+<span id="actScoreDisplay">1</span>
+
+<label for="satScore">SAT Score:</label>
+<input type="range" id="satScore" min="1" max="1600" value="1" oninput="updateSATScoreDisplay(this.value); filterMarkers();" />
+<span id="satScoreDisplay">1</span>
+
+    </div>
+    <div id="map"></div>
+
+    <script>
+        function updateACTScoreDisplay(value) {
+    document.getElementById('actScoreDisplay').textContent = value;
+}
+function updateSATScoreDisplay(value) {
+    document.getElementById('satScoreDisplay').textContent = value;
+}
+
+
+
+        let map, markers = [], stateCities = {}, majorTitles = new Set();
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: { lat: 33.5, lng: -86.8 }
+            });
+
+            
+        fetch('data/last.json')
+            .then(response => response.json())
+            .then(data => {
+                let openInfoWindow = null;
+                data.features.forEach(feature => {
+                    const coords = feature.geometry.coordinates;
+                    const latLng = new google.maps.LatLng(coords[1], coords[0]);
+                    const state = feature.properties.STATE;
+                    const city = feature.properties.CITY;
+
+                    if (!stateCities[state]) {
+                        stateCities[state] = new Set();
+                    }
+                    stateCities[state].add(city);
+
+                    if (feature.properties.programs) {
+                        feature.properties.programs.forEach(program => {
+                            if(program.level === "Bachelor's Degree"){
+                                majorTitles.add(program.title);
+                            }
+                        });
+                    }
+
+                    const marker = new google.maps.Marker({
+                        position: latLng,
+                        map: map,
+                        title: `${feature.properties.NAME}, ${city}, ${state}`,
+                        state: state,
+                        city: city,
+                        programs: feature.properties.programs ? feature.properties.programs.map(program => program.title) : [],
+                        actScores: feature.properties.act_scores,
+                      //  satScores: feature.properties.sat_scores,
+                        icon:'/data/photo.png'
+                    });
+                    markers.push(marker);
+
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: feature.properties.NAME
+                    });
+                    marker.infoWindow = infoWindow;
+
+                    marker.addListener('click', function () {
+
+                        if (openInfoWindow) {
+            openInfoWindow.close();
+        }
+
+                        infoWindow.open(map, marker);
+                        map.setZoom(10);
+                        map.setCenter(marker.getPosition());
+
+                        openInfoWindow = infoWindow;
+                    });
+                });
+
+                populateStateDropdown();
+                populateMajorDropdown();
+            })
+            .catch(error => console.error('Error loading JSON data:', error));
+    }
+
+    function populateStateDropdown() {
+    const stateSelect = document.getElementById('stateSelect');
+    stateSelect.innerHTML = '<option value="">Select State</option>';
+    Object.keys(stateCities).sort().forEach(state => {
+        const option = document.createElement('option');
+        option.value = state;
+        option.textContent = state;
+        stateSelect.appendChild(option);
+    });
+}
+
+function populateCityDropdown(selectedState) {
+    const citySelect = document.getElementById('citySelect');
+    citySelect.innerHTML = '<option value="">Select City</option>';
+
+    if (selectedState && stateCities[selectedState]) {
+        Array.from(stateCities[selectedState]).sort().forEach(city => {
+            const option = document.createElement('option');
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+        });
+    }
+}
+
+function populateMajorDropdown() {
+    const majorSelect = document.getElementById('majorSelect');
+    majorSelect.innerHTML = '<option value="">Select Major</option>';
+    Array.from(majorTitles).sort().forEach(major => {
+        const option = document.createElement('option');
+        option.value = major;
+        option.textContent = major;
+        majorSelect.appendChild(option);
+    });
+}
+
+function onStateChange() {
+            const selectedState = document.getElementById('stateSelect').value;
+            populateCityDropdown(selectedState);
+            filterMarkers();
+        }
+       
+/*
+function filterMarkers() {
+    const selectedState = document.getElementById('stateSelect').value;
+    const selectedCity = document.getElementById('citySelect').value;
+    const selectedMajor = document.getElementById('majorSelect').value;
+    const selectedACTScore = parseInt(document.getElementById('actScoreDisplay').value, 10);
+
+    markers.forEach(marker => {
+        const matchState = selectedState === '' || marker.state === selectedState;
+        const matchCity = selectedCity === '' || marker.city === selectedCity;
+        const matchMajor = selectedMajor === '' || marker.programs.includes(selectedMajor);
+        const matchACTScore = isNaN(selectedACTScore) || (marker.actScores && marker.actScores.includes(selectedACTScore));
+
+        marker.setVisible(matchState && matchCity && matchMajor && matchACTScore);
+    });
+}
+*/
+
+function filterMarkers() {
+    const selectedState = document.getElementById('stateSelect').value;
+    const selectedCity = document.getElementById('citySelect').value;
+    const selectedMajor = document.getElementById('majorSelect').value;
+   // const selectedDegreeLevel = document.getElementById('degreeLevelSelect').value;
+    const selectedACTScore = parseInt(document.getElementById('actScore').value, 10);
+    const selectedSATScore = parseInt(document.getElementById('satScore').value, 10);
+    //const searchTerm = document.getElementById('searchBar').value.toLowerCase();
+
+    markers.forEach(marker => {
+        const matchState = selectedState === '' || marker.state === selectedState;
+        const matchCity = selectedCity === '' || marker.city === selectedCity;
+        const matchMajor = selectedMajor === '' || marker.programs.includes(selectedMajor);
+       // const matchDegreeLevel = selectedDegreeLevel === '' || marker.degreeLevels.includes(selectedDegreeLevel);
+        const matchACTScore = isNaN(selectedACTScore) || (marker.actScores && marker.actScores.cumulative >= selectedACTScore);
+       // const matchSearch = searchTerm === '' || marker.name.toLowerCase().includes(searchTerm);
+       const matchSACTScore = isNaN(selectedSATScore) || (marker.satScores && marker.satScores.cumulative >= selectedSACTScore);
+       const isVisible = matchState && matchCity && matchMajor && matchACTScore;
+        
+        marker.setVisible(isVisible);
+
+        // Close the info window associated with the marker if it's not visible
+        if (!isVisible && marker.infoWindow) {
+            marker.infoWindow.close();
+        }
+    });
+}
+
+
+
+    document.getElementById('toggleButton').addEventListener('click', function() {
+        const controls = document.getElementById('controls');
+        const map = document.getElementById('map');
+
+        if (controls.classList.contains('collapsed')) {
+            controls.classList.remove('collapsed');
+            map.style.width = 'calc(100% - 250px)';
+        } else {
+            controls.classList.add('collapsed');
+            map.style.width = '100%';
+        }
+    });
+
+function loadGoogleMapsScript() {
+const script = document.createElement("script");
+script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyD1e_KlIlKeCykamE8IhKtJdSGpS3ZsNXA&callback=initMap`;
+script.async = true;
+document.body.appendChild(script);
+}
+
+
+loadGoogleMapsScript();
+
+
+</script>
+</body>
+</html>
+
